@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aniversary Gift</title>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
+</head>
+<body>
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            <span class="comments">/**</span><br />
+            <span class="space"/><span class="comments">*2020-10-31</span><br />
+            <span class="space"/><span class="comments">*/</span><br />
+            我 = <span class="keyword">潘光烽</span><br />
+            你 = <span class="keyword">肖伊彤</span><br />
+            <span class="comments">// 一起开启了属于我们的故事. </span><br />
+            那天我勇敢地牵起了你的手;<br />
+            <span class="comments">// 两个互不相识的人通过一周cp相识并相爱.</span><br />
+            这一切神奇又美妙;<br />
+            <span class="comments">// 时间过得如此之快.</span><br />
+            我们已经牵着手走过了一年;<br />
+            <span class="comments">// 我们经历了疫情，经历了异地的考验.</span><br />
+            我们经历了生活的开心，也经历了生活的小摩擦;<br />
+            <span class="comments">// 你开心的时候，我的心情艳阳高照.</span><br />
+            你悲伤的时候，我的心情雷雨交加;<br />
+            <span class="comments">// 因为我爱你，所以我愿意感受你所有的感受.</span><br />
+            <span class="comments">// 今天是我们在一起一周年的日子.</span><br />
+            我们牵着手走过了一年，也会走过这一辈子.<br />
+            <span class="placeholder"/>// 醒时捕光</span><br />
+            <span class="placeholder"/>// 睡时捉梦.</span><br />
+            <span class="placeholder"/>遇见你三生有幸<br />
+            <br>
+            <br>
+            <span class="keyword">往后余生:</span><br />
+            <span class="keyword">冬雪是你，春华是你，秋黄是你，夏雨是你，目光所至也是你</span><br />
+        </div>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    亲爱的，这是我们相爱在一起的时光:
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    爱你直到永永远远<br/>
+                    <div class="signature">- 烽烽</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<audio autoplay="autoplay" loop="loop" src="audio/whys.mp3" controls="controls" id="audio" style="visibility: hidden;">
+    您的浏览器不支持 audio 标签。
+</audio>
+<script type="text/javascript">
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var together = new Date('2019-10-31 00:00:00');
+    window.onload = function () {
+        document.getElementById('audio').play();
+    }
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none")
+        $("#copyright").css("position", "absolute");
+        $("#copyright").css("bottom", "10px");
+        document.execCommand("stop");
+    } else {
+        setTimeout(function () {
+            startHeartAnimation();
+        }, 5000);
+
+        timeElapse(together);
+        setInterval(function () {
+            timeElapse(together);
+        }, 500);
+
+        adjustCodePosition();
+        $("#code").typewriter();
+    }
+</script>
+</body>
+</html>
